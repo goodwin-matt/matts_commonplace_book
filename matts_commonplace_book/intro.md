@@ -5,10 +5,11 @@ to remember and that may be useful to others.
 
 ### What is a commonplace book?
 
-According to [Wikipedia](https://en.wikipedia.org/wiki/Commonplace_book)
-commonplace books "are a way to compile knowledge". The concept goes back 
-to ancient times and provides a means for people to collect different items 
-such as notes or quotes. 
+[Commonplace books](https://en.wikipedia.org/wiki/Commonplace_book) are simply a way 
+to compile knowledge. The concept goes back 
+to ancient times and provided a means for people to collect a wide variety of 
+items such as notes, quotes, poems, recipes, etc. Essentially a central location 
+of knowledge for an individual.
 
 ### Why a commonplace book?
 
@@ -23,8 +24,8 @@ a central location for me personally to go will help me be more efficient.
 3. I can share my understanding around certain topics better with others by pointing 
 to a specific page of this book.
    
-4. Less pressure to produce content like blogging. More of a way to keep track of 
-what is important to me.
+4. A lower pressure medium for producing content, compared to something like blogging. 
+   More of a way to keep track of what is important to me.
    
 
 ### What is in this commonplace book
