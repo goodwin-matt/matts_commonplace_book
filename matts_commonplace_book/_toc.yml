@@ -4,6 +4,7 @@
 format: jb-book
 root: intro
 chapters:
-- file: markdown
-- file: notebooks
 - file: nlp
+- file: career
+- file: rest_api
+- file: statistical_modeling_overview

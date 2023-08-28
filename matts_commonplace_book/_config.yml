@@ -1,13 +1,17 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: My sample book
-author: The Jupyter Book Community
+title: Matt's Commonplace Book
+author: Matt Goodwin
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
+
+# For bibliography
+bibtex_bibfiles:
+    - references.bib
 
 
