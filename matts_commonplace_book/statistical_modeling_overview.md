@@ -1,27 +1,54 @@
 # Statistical Modeling Overview and Basic Theory
 
 ## Overview
-When discussing modeling it is important to keep in mind that “all models are wrong but some are
-useful"[^mylabel] 
-. The world is extremely complex and it can be impossible to create a model that perfectly
-useful”
+When discussing modeling it is important to keep in mind that “all models are wrong but some are useful".[^georgebox]
+The world is extremely complex and it can be impossible to create a model that perfectly approximates the underlying 
+mechanisms that make our world turn. There are different approaches to modeling depending on the discipline you come 
+from, but personally I like the idea of the function approximation approach suggested by applied math and statistics. 
+This is the approach that [ESL](https://hastie.su.domains/ElemStatLearn/) takes. Taking this approach allows us to use probability theory combined with decision 
+theory. 
 
-[^mylabel]: My footnote text.
+Bishop, from his book Pattern Recognition and Machine Learning, has a really nice overview of some of these 
+concepts. The starting point for modeling, at least in a supervised setting, starts with the independent 
+variable or covariate $X$ and dependent variable $Y$ (see notation section). We want to know:
 
-approximates the underlying mechanisms that make our world turn.
-There are different approaches to modeling depending on the discipline you come from, but per- sonally I like the idea of the function approximation approach suggested by applied math and statis- tics. This is the approach that ESL takes. Taking this approach allows us to use probability theory combined with decision theory.
-Bishop, from his book Pattern Recognition and Machine Learning, has a really nice overview of some of these concepts. The starting point I think for modeling, at least in a supervised setting, starts with the independent variable or covariate X and dependent variable Y (see notation section). We want to know:
-1. Thenatureoftherelationshipbetweenthevariables(inference).
-2. Givenanindependentvariable,determinethedependentvariable(prediction).
-Bishop mentions that by using probability we can completely summarize the relationship and the uncertainty between the two variables with the joint distribution P (X , Y ). We use probability because for many problems we are interested in, we generally cannot come to a completely deterministic rela- tionship between the independent and dependent variables. This is partly because of measurement error, but also because the number of independent variables needed to perfectly determine the de- pendent variable is potentially infinite.
-For example, imagine we wanted to predict the number of ice cream cones we will sell on a par- ticular day. Some variables such as the time of year or location of the ice cream store may provide us enough information to make a pretty good prediction or to understand the relationship between some of the independent and dependent variables fairly well. But to perfectly predict the number of ice cream cones we would need to know everything from the state of the road conditions, to whether or not a family from out-of-state decided to take a vacation. Since this is impossible, we acknowledge variability and error in our estimates using probability.
-I think the key to understanding this is to remember that the moment we use only a subset of all the possible features we would need for a perfectly deterministic relationship, then we must in- troduce uncertainty. We cannot say for certain that only knowing today is July 1 will lead to high ice-cream sales, but we can say the probability is higher than January 1st. When I have a training sample (x1,y1),(x2,y2),...(xn,yn), I treat this as the truth (which it is) but I need to remember that these are draws coming from a distribution. I guess in that sense P (X , Y ) is a model itself, something we are forced to use because we don’t know all the features needed for a deterministic relationship.
-One side note to make here is, as ESL mentions, sometimes the relationship IS deterministic but the randomness comes from the fact that we have limited data. If we have a different training data set then we get different results but the underlying relationship is still the same since it is deterministic.
- 1attributed to George Box
-3
-These types of problems can be handled by similar techniques where the relationship between the variables is probabilistic (see pg 28 of ESL).
-Along the above point, it may be tempting to think that the more features the better because we would be getting closer to a deterministic relationship where we could predict perfectly. The issue with this however is related to the problem just mentioned that when we build models we have only a sample from the distribution. We could then start to tune our model to the specific data set but not the true distribution. So I imagine a lot of features would be fine to have, but only if we have more and more data that approximate the true distribution. See the section on curse of dimensionality for more discussion along this point.
-1.2 DECISION THEORY
+1. The nature of the relationship between the variables (inference).
+2. Given an independent variable, determine the dependent variable (prediction).
+
+Bishop mentions that by using probability we can completely summarize the relationship and the uncertainty between the 
+two variables with the joint distribution $P(X,Y)$. We use probability because for many problems we are interested in, 
+we generally cannot come to a completely deterministic relationship between the independent and dependent variables.
+This is partly because of measurement error, but also because the number of independent variables needed to perfectly 
+determine the dependent variable is potentially infinite.
+
+For example, imagine we wanted to predict the number of ice cream cones we will sell on a particular day. Some variables 
+such as the time of year or location of the ice cream store 
+may provide us enough information to make a pretty good prediction or to understand the relationship between some 
+independent and dependent variables fairly well. But to perfectly predict the number of ice cream cones we would need to 
+know everything from the state of the road conditions, to whether or not a family from out-of-state decided to take a 
+vacation. Since this is impossible, we acknowledge variability and error in our estimates using probability.
+
+The key to understanding this is to remember that the moment we use only a subset of all the possible features 
+we would need for a perfectly deterministic relationship, then we must introduce uncertainty. We cannot say for 
+certain that only knowing today is July 1 will lead to high ice-cream sales, but we can say the probability is higher 
+than January 1st. When I have a training sample $(x_1,y_1),(x_2,y_2),...(x_n,y_n)$, I treat this as the truth (which it is), 
+but I need to remember that these are draws coming from a distribution. I guess in that sense $P(X,Y)$ is a model itself, 
+something we are forced to use because we don’t know all the features needed for a deterministic relationship.
+
+One side note to make here is, as ESL mentions, sometimes the relationship IS deterministic, but the randomness comes 
+from the fact that we have limited data. If we have a different training data set then we get different results, but the 
+underlying relationship is still the same since it is deterministic. These types of problems can be handled by similar 
+techniques where the relationship between the variables is 
+probabilistic (see pg 28 of ESL). Along the above point, it may be tempting to think that the more features the better 
+because we would be getting closer to a deterministic relationship where we could predict perfectly. The issue with this 
+however is related to the problem just mentioned that when we build models we have only a sample from the distribution. 
+We could then start to tune our model to the specific data set but not the true distribution. So I imagine a lot of 
+features would be fine to have, but only if we have more and more data that approximate the true distribution. 
+See the section on {ref}`section:curse_of_dimensionality` for more discussion along this point.
+
+
+## Decision Theory
+
 As mentioned above, one key area of interest in understanding the relationship between X and Y is inference, or in other words understand what P (X , Y ) looks like using information from a sample. This can give us an understanding of how the variables are related. In many practical applications however, we want to be able to predict Y given X . This is where decision theory comes into play. Decision theory is designed to help us make the optimal decision given inputs. Bishop gives a nice overview that I try and summarize in my own words below.
 Lets approach this by treating the dependent variable Y as a categorical variable taking on values 0 or 1. For simplicity assume X is a single continuous variable. We then have for P (X , Y ) a three- dimensional distribution where P (Y |X ) is a probability mass function. When making a decision called the decision step we formulate some rule that divides the input space into decision regions. If an instance falls into a certain decision region (based on X ) it is predicted to be a 0 or 1. We want to minimize our mistakes as much as possible so we aren’t assigning an instance to 0 when it should really be 1. The probability of a mistake can be written as:
 P(mistake)=P(X ∈R1,0)+P(X ∈R0,1) (1.1)
@@ -154,7 +181,9 @@ Discriminative model pros:
 • Combinemodels-TODO:GivesanexampleofthenaiveBayesmodel
 The discriminative model P (Y |X ) allows us, as Bishop says, to completely summarize the way Y depends on X . When we use another model like the additive error model, we make a further assump- tion that the errors are independent of X and that they have a constant variance. So the additive error model puts further constraints on the discriminative model. We can still think of the additive error model as some conditional distribution, but a distribution that is simplified.
 We can also go the other direction by thinking of the discriminative model P (Y |X ) as the equation yi = f (xi ) + εi but not putting constraints of any kind on εi . The idea is that there is some "true func- tion" out there and then there are some errors off of that true function that gives us our dependent variable.
-1.6 CURSE OF DIMENSIONALITY
+
+(section:curse_of_dimensionality)=
+## Curse of Dimensionality
 The curse of dimensionality 2 refers to the problem that models face in many dimensions. As both ESL and Bishop describe, our intuition break down in many dimensions. For example, Bishop gives the example of points in a unit sphere. In general the volume of a hypersphere can be written as:
 n
 π2
@@ -191,3 +220,7 @@ In summary, the curse of dimensionality is an important concept to keep in mind 
 1.7 NO FREE LUNCH THEOREM
 Bishop has a great summary of this concept from a podcast with Microsoft Research. To paraphrase, the No Free Lunch Theorem implies that all machine learning algorithms perform equally, averag- ing across all possible problems. In other words as Bishop says "there cannot be a single universal machine learning algorithm that will solve all problems" (see podcast transcript).
 The caution here however is that this theorem is more of an abstract concept and really there may be algorithms that perform consistently well on the problems we care about or that we see in the real world (think deep learning for example). The larger point to take-away as Bishop mentions however, is that there are really two parts to a problem: the data and the assumptions (or in other words priors, constraints, etc.). Both are important and he makes the case for treating assumptions as "first-class citizens", not just the data. This makes a lot of sense to me because if our data is truly linear then a linear model would potentially do much better than a decision tree for example.
+
+
+
+[^georgebox]: Attributed to George Box.
