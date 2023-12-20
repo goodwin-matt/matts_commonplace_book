@@ -6,5 +6,5 @@ root: intro
 chapters:
 - file: nlp
 - file: career
-- file: rest_api
-- file: statistical_modeling_overview
+- file: general_computer_science
+#- file: statistical_modeling_overview
