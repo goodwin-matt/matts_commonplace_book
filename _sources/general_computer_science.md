@@ -1,3 +1,5 @@
+# General Computer Science
+
 ## REST APIs
 
 - REST stands for "representatiional state transfer". Not a technology but an archetectural specification or paradigm.
@@ -13,3 +15,10 @@
     6. Uniform interface
 - The world wide web is just one of many services on the internet (email, streaming, etc. being others)
 - A RESTful API is a REST API that is accessed through http. 
+
+
+## IP Addresses
+
+- Each computer has an IP address. IPv4 is the binary IP address in decimal form.
+- CIDR (Classless Inter-Domain Routing) is a way to specify a range of addresses.
+    - This notation has the IPv4 address written out but then with a backslash and a number. This number tells you how many of the bits are fixed.
