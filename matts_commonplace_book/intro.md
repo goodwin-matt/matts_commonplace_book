@@ -17,6 +17,7 @@ I was drawn to the concept of a commonplace book for a few reasons:
 
 1. I learn and retain better when I write and write to teach. A public commonplace 
 book helps force me to be more thorough in my learning and more clear in my writing.
+   See [here](../feynman_learning.md) for more about Feynman's way of learning.
    
 2. I find myself looking up the same pieces of information over and over and having 
 a central location for me personally to go will help me be more efficient.
