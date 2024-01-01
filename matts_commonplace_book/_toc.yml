@@ -7,4 +7,7 @@ chapters:
 - file: nlp
 - file: career
 - file: general_computer_science
+- file: general_learning
+  sections:
+    - file: feynman_learning
 #- file: statistical_modeling_overview

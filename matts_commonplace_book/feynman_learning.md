@@ -1,4 +1,4 @@
-# Feynman Method For Learning
+## Feynman Method For Learning
 
 I'm learning more about Richard Feynman, but what I've learned 
 so far is really impressive. I like his attitude towards
@@ -23,4 +23,3 @@ Better yet try and teach it to someone else. This forces you to see where
 4. See how to simplify the material. Simplicity forces you to understand 
 the material. Try to create an analogy as well, this helps with recall
    and understanding.
-
